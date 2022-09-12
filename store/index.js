@@ -1,11 +1,15 @@
+export const state = () => ({
+      tasks: []
+})
+
 export const mutations = {
-      ADD_TAST(state, task) {
-            state.tasks = [{content: task, done: false, ...state.tasks}]
+      ADD_TASK(state, task) {
+            state.tasks.push({content: task, isDone: false})
       },
       REMOVE_TASK(state, task) {
-            state.tasks.splice(state.tasks.indexOf(task, 1))
+            state.tasks.splice(state.tasks.indexOf(task), 1)
       },
       TOGGLE_TASK(state, task) {
-            task.done = !task.done
+            task.isDone = !task.isDone
       }
 }
